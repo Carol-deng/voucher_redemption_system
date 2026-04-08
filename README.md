@@ -1,138 +1,165 @@
 # voucher_redemption_system
-A project in Advance Programming
 
-# Porject Background
+## 📌 项目简介（中文）
 
-# How to Run the System
+本项目基于新加坡 CDC Voucher 政策背景，设计并实现了一个完整的电子消费券兑换系统。系统支持家庭账户注册、商户注册、消费券申领与核销，并通过后端 API 与前端交互实现数据流转。项目采用分层架构设计，结合 OOP 与数据结构优化，实现了高可扩展性与数据一致性，适用于真实业务场景中的电子券管理与交易系统。
 
-The system consists of two parts: the backend API server and the front-end UI.
+---
 
-## Step 1:
-Open a terminal and run:
+## 📖 Project Background
+
+This project is developed based on Singapore’s CDC Voucher Scheme, where households receive government-issued vouchers to support daily expenses. The vouchers are distributed in multiple tranches and can be redeemed across registered merchants.
+
+The system simulates a real-world voucher redemption ecosystem, including:
+
+* Household registration and voucher claiming
+* Merchant onboarding and reimbursement tracking
+* Voucher activation, validation, and redemption
+* Transaction recording and audit trail
+
+The key challenge lies in designing efficient in-memory data structures and ensuring data consistency across operations, especially under system restarts.
+
+---
+
+## ⚙️ System Architecture
+
+The system follows a layered architecture:
+
+* **Presentation Layer**: Flet UI
+* **Application Layer**: Flask API
+* **Business Logic Layer**: OOP managers
+* **Persistence Layer**: CSV and JSON
+
+### Key Components
+
+* HouseholdManager
+* MerchantManager
+* ActivationManager
+* TransactionManager
+
+### Design Advantages
+
+* Separation of concerns
+* Scalability
+* Traceability
+* Data consistency
+
+---
+
+## 🚀 How to Run the System
+
+The system consists of two parts: backend API and frontend UI.
+
+### Step 1: Start Backend API
+
+```bash
 python cdc_api.py
+```
 
-Do NOT close this terminal. If the API server stops, the system will stop working.
+⚠️ Do NOT close this terminal.
 
-## Step 2:
-Open a separate terminal and run:
+---
+
+### Step 2: Start Frontend UI
+
+```bash
 python CDC_ui.py
+```
 
-This launches the Flet-based UI program for household and merchant operations.
-You can also open several terminal and run the programs simultaneously to check the flow between them. 
+* Launches Flet-based UI
+* Supports household and merchant operations
+* Multiple instances can simulate workflow
 
----------------------------------------
-# Source Files Description
+---
 
-## cdc_api.py
-Flask-based API server.
+## 📂 Source Files Description
 
-## CDC_ui.py
-Flet-based user interface.
-Provides household and merchant interface and connects to backend API.
+### cdc_api.py
 
--------------------------------------------------
-# Data Files Description
+Flask-based backend API that handles business logic and data processing.
 
-There is already some data in the files to make it easier for you to test if needed.
+### CDC_ui.py
 
-## activations.json
-Stores barcode-based activation records.
+Flet-based frontend interface that connects to backend APIs.
 
-Example:
-{
-"barcode": "1866497212352",
-"household_id": "H0001",
-"voucher_codes": ["V10-0003-H0001","V10-0004-H0001"],
-"total_amount": 20,
-"timestamp": "2026-02-05 20:05:47",
-"status": "pending"
-}
+---
 
-Purpose:
-Maps barcode to selected vouchers for later redemption.
+## 🗄️ Data Files Description
 
-## households.csv
-Stores FIN and Household_ID mapping.
+### activations.json
 
-Format:
-FIN,Household_ID
+Stores barcode activation records and maps vouchers to households.
 
-Purpose:
-Ensures each household has a unique system ID.
+### households.csv
 
-## merchants.csv
-Stores merchant registration information.
+Maps FIN to Household ID to ensure unique identification.
 
-Includes:
-Merchant_ID
-Merchant_Name
-UEN
-Bank details
-Registration date
-Status
+### merchants.csv
 
-## RedeemXXXXXXXX.csv
-Hourly redemption export file.
-Used for reimbursement processing.
+Contains merchant registration and banking information.
 
-## transactions.csv
-Complete transaction log.
-Records every redeemed voucher with:
-Transaction_ID
-Household_ID
-Merchant_ID
-Voucher_Code
-Amount
-Payment_Status
-Remarks
+### transactions.csv
 
-Provides full audit trail.
+Full transaction log for audit purposes.
 
-## voucher_state.json
-Stores voucher usage status per household.
+### RedeemXXXXXXXX.csv
 
-Structure:
-Each household contains:
-  80 vouchers of $2
-  32 vouchers of $5
-  45 vouchers of $10
+Hourly redemption export for reimbursement processing.
 
-Each voucher is represented as:
-  0 = unused
-  1 = used
+### voucher_state.json
 
-This prevents double redemption.
+Tracks voucher usage per household to prevent double redemption.
 
-------------------------------------
-# Voucher Code Format
+---
+
+## 🧾 Voucher Code Format
 
 Each voucher follows the format:
+
+```
 V{denomination}-{index}-{household_id}
+```
 
 Example:
+
+```
 V10-0003-H0001
+```
 
-Activation generates a unique barcode that maps to a list of voucher codes.
-During redemption:
-  Barcode is validated
-  Voucher status is checked
-  Voucher state is updated
-  Transaction is logged
-  System Design Summary
+### Redemption Flow
 
-----------------------------------------------
-# System Architecture
+1. Barcode validation
+2. Voucher status check
+3. State update
+4. Transaction logging
 
-## The system follows a layered architecture:
-  Presentation layer (Flet UI)
-  Application layer (Flask API)
-  Business logic layer (OOP managers and domain models)
-  Persistence layer (CSV and JSON flat files)
+---
 
-## Key managers:
-  HouseholdManager
-  MerchantManager
-  ActivationManager
-  TransactionManager
+## 🔄 System Workflow
 
-This design ensures separation of concerns, traceability, and data consistency.
+1. Household registers and claims vouchers
+2. System generates voucher codes and barcode
+3. Merchant scans or inputs barcode
+4. Backend validates and processes redemption
+5. Transaction recorded for audit
+
+---
+
+## 💡 Key Features
+
+* Modular OOP design
+* Efficient in-memory data handling
+* Persistent storage with flat files
+* Prevention of double redemption
+* Full transaction traceability
+* Real-world government voucher simulation
+
+---
+
+## 🏷️ Tech Stack
+
+* Python
+* Flask
+* Flet
+* CSV / JSON
+* Object-Oriented Programming
