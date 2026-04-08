@@ -1,0 +1,3 @@
+Transaction_ID,Household_ID,Merchant_ID,Transaction_Date_Time,Voucher_Code,Denomination_Used,Amount_Redeemed,Payment_Status,Remarks
+TX00008,H0017,M002,20260205200810,V10-0001-H0017,$10.00,$20.00,Completed,1
+TX00008,H0017,M002,20260205200810,V10-0002-H0017,$10.00,$20.00,Completed,Final denomination used

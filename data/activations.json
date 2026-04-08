@@ -1,0 +1,80 @@
+[
+  {
+    "barcode": "1866497212352",
+    "household_id": "H0001",
+    "voucher_codes": [
+      "V10-0003-H0001",
+      "V10-0004-H0001"
+    ],
+    "total_amount": 20,
+    "timestamp": "2026-02-05 20:05:47",
+    "status": "pending"
+  },
+  {
+    "barcode": "5438377908318",
+    "household_id": "H0001",
+    "voucher_codes": [
+      "V10-0003-H0001",
+      "V10-0004-H0001"
+    ],
+    "total_amount": 20,
+    "timestamp": "2026-02-05 20:05:57",
+    "status": "pending"
+  },
+  {
+    "barcode": "5236925659749",
+    "household_id": "H0017",
+    "voucher_codes": [
+      "V10-0001-H0017",
+      "V10-0002-H0017"
+    ],
+    "total_amount": 20,
+    "timestamp": "2026-02-05 20:07:15",
+    "status": "redeemed",
+    "redeemed_at": "2026-02-05 20:08:10",
+    "merchant_id": "M002",
+    "transaction_id": "TX00008"
+  },
+  {
+    "barcode": "9993784707672",
+    "household_id": "H0015",
+    "voucher_codes": [
+      "V10-0001-H0015",
+      "V05-0004-H0015"
+    ],
+    "total_amount": 15,
+    "timestamp": "2026-02-11 14:11:23",
+    "status": "redeemed",
+    "redeemed_at": "2026-02-11 14:12:38",
+    "merchant_id": "M002",
+    "transaction_id": "TX00009"
+  },
+  {
+    "barcode": "7506747298166",
+    "household_id": "H0018",
+    "voucher_codes": [
+      "V10-0001-H0018",
+      "V10-0002-H0018"
+    ],
+    "total_amount": 20,
+    "timestamp": "2026-02-13 20:39:44",
+    "status": "redeemed",
+    "redeemed_at": "2026-02-13 20:40:33",
+    "merchant_id": "M003",
+    "transaction_id": "TX00010"
+  },
+  {
+    "barcode": "4185544273311",
+    "household_id": "H0019",
+    "voucher_codes": [
+      "V10-0001-H0019",
+      "V10-0002-H0019"
+    ],
+    "total_amount": 20,
+    "timestamp": "2026-02-13 21:33:12",
+    "status": "redeemed",
+    "redeemed_at": "2026-02-13 21:33:52",
+    "merchant_id": "M001",
+    "transaction_id": "TX00011"
+  }
+]

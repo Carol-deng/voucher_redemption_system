@@ -1,0 +1,5 @@
+Merchant_ID,Merchant_Name,UEN,Bank_Name,Bank_Code,Branch_Code,Account_Number,Account_Holder_Name,Registration_Date,Status
+M001,M,200417749L,DBS Bank Ltd,7171,001,111111111,M,2026-02-05,Active
+M002,M,265015802E,OCBC Bank,7339,501,111111111,M,2026-02-05,Active
+M003,h,265378474Q,POSB Bank,7171,081,111111111,h,2026-02-05,Active
+M004,ABCDE,265485251E,DBS Bank Ltd,7171,001,122222222,carol,2026-02-13,Active
